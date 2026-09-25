@@ -1775,28 +1775,24 @@ const HandoffsExpensive: Page = () => (
           <Heading size={72}>Работа стала короче хендофа</Heading>
         </div>
       </div>
-      <Step>
-        <div style={{ marginTop: 16 }}>
-          <BeforePlain />
-        </div>
-      </Step>
+      <div style={{ marginTop: 16 }}>
+        <BeforePlain />
+      </div>
       <Step>
         <div style={{ marginTop: 24 }}>
           <AfterPlain />
         </div>
       </Step>
-      <Step>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 48, marginTop: 28 }}>
-          <LegendItem color={feColor} label="фронтенд" />
-          <LegendItem color={beColor} label="бекенд" />
-          <LegendItem color={blockerColor} label="блокер / хендоф" stroke />
-          <div style={{ flex: 1 }} />
-          <div style={{ fontSize: 30, fontWeight: 600, maxWidth: 760, lineHeight: 1.35 }}>
-            Пока задача идёт от фронтенда к бекенду и обратно, агент уже мог бы её закончить.
-          </div>
-        </div>
-      </Step>
     </Steps>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 48, marginTop: 28 }}>
+      <LegendItem color={feColor} label="фронтенд" />
+      <LegendItem color={beColor} label="бекенд" />
+      <LegendItem color={blockerColor} label="блокер / хендоф" stroke />
+      <div style={{ flex: 1 }} />
+      <div style={{ fontSize: 30, fontWeight: 600, maxWidth: 760, lineHeight: 1.35 }}>
+        Пока задача идёт от фронтенда к бекенду и обратно, агент уже мог бы её закончить.
+      </div>
+    </div>
     <Footer />
   </Live>
 );
@@ -2853,6 +2849,25 @@ const RolesH1: Page = () => (
   </Frame>
 );
 
+// Обзор трёх уроков
+const LessonsOverview: Page = () => (
+  <Frame title="Три урока" lead="Что показали полгода harness в текущих ролях." gap={56}>
+    <div className="rs-steps-row" style={{ display: 'flex', gap: 32, alignItems: 'stretch' }}>
+      <Steps>
+        <Step>
+          <Track n="01" title="Тестировщики" text="e2e отдельным шагом QA рвёт цикл агента" />
+        </Step>
+        <Step>
+          <Track n="02" title="Хендофы" text="Работа с агентом короче передачи между людьми, а уникальной работы в роли всё меньше" />
+        </Step>
+        <Step>
+          <Track n="03" title="Еженедельный разбор" text="Большая часть проблем проектов — в передаче контекста между ролями" />
+        </Step>
+      </Steps>
+    </div>
+  </Frame>
+);
+
 // Вводная страница урока
 const LessonIntro = ({ n, title, sub }: { n: string; title: ReactNode; sub: ReactNode }) => (
   <Live style={{ padding: `0 ${PAD}px`, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -2983,8 +2998,8 @@ const WeeklySync: Page = () => (
 );
 
 const LessonsConclusion: Page = () => (
-  <Frame title="Выводы из уроков" gap={64}>
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 44 }}>
+  <Frame title="Выводы из уроков" gap={48}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
       <Steps>
         <Step>
           <Takeaway n="1">
@@ -2999,6 +3014,11 @@ const LessonsConclusion: Page = () => (
         <Step>
           <Takeaway n="3">
             AI SDLC на старых ролях <A>неминуемо приведёт</A> к той же проблеме, с которой столкнулись мы
+          </Takeaway>
+        </Step>
+        <Step>
+          <Takeaway n="4">
+            А точно ли стоит <A>тратить много сил</A> на внедрение в старый процесс?
           </Takeaway>
         </Step>
       </Steps>
@@ -3365,6 +3385,7 @@ export default [
   RolesH1,
   Bridge,
   ManagementMistake,
+  LessonsOverview,
   Lesson1,
   FlowAnti,
   FlowE2E,
