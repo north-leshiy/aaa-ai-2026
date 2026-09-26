@@ -16,6 +16,7 @@ import fabricaImg from './assets/fabrica.png';
 import mostiImg from './assets/mosti.jpg';
 import qrChannelImg from './assets/qr-techlead-stream.png';
 import meatProxyImg from './assets/meat-proxy.png';
+import meatProxyVideo from './assets/meat-proxy-reaction.mp4';
 
 // ─── Дизайн-токены (правятся из панели Design) ───────────────────────────────
 export const design: DesignSystem = {
@@ -2092,6 +2093,13 @@ const MeatProxy: Page = () => (
   </Live>
 );
 
+// Реакция на мясной прокси (бывшая гифка, перекодирована в mp4)
+const MeatProxyGif: Page = () => (
+  <Live style={{ background: ink, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <video src={meatProxyVideo} autoPlay loop muted playsInline style={{ height: 960, width: 'auto', borderRadius: 'var(--osd-radius)' }} />
+  </Live>
+);
+
 // Узкое место переезжает
 const BottleneckFlow: Page = () => (
   <Live style={{ padding: `100px ${PAD}px 0` }}>
@@ -3398,6 +3406,7 @@ export default [
   HandoffsSdlc,
   AgentizedRoles,
   MeatProxy,
+  MeatProxyGif,
   Takeaway2,
   Lesson4,
   WeeklySync,
